@@ -1,0 +1,23 @@
+.panel.col-md-6{  /*.panel.col-md-3*/
+    padding-left: 0;
+    padding-right: 0;
+   
+}
+
+.colores{    
+    background-color: lightblue; 
+    border: solid 1px white;
+}
+
+.micolor{ 
+    background-color: lightyellow; 
+    border: solid 1px white;
+}
+
+.estiloPar{
+    background-color: lightblue;
+}
+
+.estiloImpar{
+    background-color: green;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="panel panel-default col-md-6 col-md-offset-3">
+		<div class="panel-heading">
+			<h4>LISTA PRODUCTOS</h4>
+		</div>
+
+		<div class="panel-body">
+			<form class="form-horizontal" name="p">
+				<div class="panel panel-default">
+
+					<div class="form-group ">
+						<table class="table table-striped colores">
+							<thead>
+								<tr>
+									<td>Index</td>
+									<td>Codigo</td>
+									<td>Nombre</td>
+									<td>Precio</td>
+									<td>Categoria</td>
+									<td>Cantidad</td>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="prod in productos">
+									<td>{{$index+1}}</td>
+									<td>{{prod.codigo}}</td>
+									<td>{{prod.nombre}}</td>
+									<td>{{prod.telefono}}</td>
+									<td>{{prod.categoria}}</td>
+									<td>{{prod.cantidad}}</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Index</td>
+            <td>Codigo</td>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Categoria</td>
+            <td>Editar</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="rest in restaurantes">
+            <td>{{$index+1}}</td>
+            <td>{{rest.codigo}}</td>
+            <td>{{rest.nombre}}</td>
+            <td>{{rest.telefono}}</td>
+            <td>{{rest.categoria.nombre}}</td>
+            <!--<td><select type="combo-box" ng-options="categoria.nombre for categoria in categoria" ng-model="categoriaSeleccionada"> </select> </td>-->
+            <td><input type="button" class="btn btn-primary" value="Editar" ng-click="editar(rest)" /></td>
+            <td><a class = "btn" href="#/editar/{{rest.codigo}}/param2=6">Pasar</a></td>
+        </tr>
+    </tbody>
+</table>
+<input type="button" class="btn btn-primary" value="Consultar" ng-click="recuperarTodos()" />
+                
+                <!--?param2=6-->

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="FacturaApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css" />
+    <link href="css/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="css/styles/kendo.default.min.css" rel="stylesheet" />
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/kendo.web.min.js"></script>
+    <script src="js/libs/angular-kendo.min.js"></script>
+    <script src="js/libs/angular-translate.min.js"></script>   
+   
+
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+
+</head>
+
+<body ng-controller="FacturaController">
+
+    <form class="form-horizontal">
+        <div  class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="panel panel-primary   k-content">
+                        <div class="panel-heading" style="text-align:center">Datos Factura</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nº de Factura:</label>
+                                <div class="col-xs-3" >
+                                    <input class="form-control" id="nfactura" type="text" ng-model="numFactura"/>
+                                    <input kendo-date-picker k-format="'MM/dd/yyyy'" ng-model="fecha"/>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Ingrese la cédula:</label>
+                                <div class="col-xs-5">
+                                    <!--<input class="form-control" type="text" ng-model="cedulaBuscada" />-->
+                                     <input id="cedulaB" kendo-masked-text-box ng-model="cedulaBuscada" k-mask="'0000000000'" /> 
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="button" class="btn btn-primary" value="Buscar" ng-click="consultarCliente()" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Cédula:</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="cliente.cedula" disabled />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Apellido:</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="cliente.apellido" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Nombre:</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="cliente.nombre" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Direccion:</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="cliente.direccion" disabled />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Telefono:</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="cliente.telefono" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="text-align:center">Producto</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label" translate>Ingrese</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="productoBuscado" />
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="button" class="btn btn-primary" value="Buscar" ng-click="consultarProducto()" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label" translate>Codigo</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="producto.codigo" disabled />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label" translate>Nombre</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="producto.nombre" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label" translate>Precio</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="text" ng-model="producto.precio" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label" translate>Cantidad</label>
+                                <div class="col-xs-5">
+                                    <input class="form-control" type="number" ng-model="producto.cantidad" />
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="button" class="btn btn-primary" value="Agregar" ng-click="agregar()" />
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="button" class="btn btn-primary" value="CambiarLenguaje" ng-click="cambiarLenguaje()" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="text-align:center">Detalles</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Subtotal</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="det in detalles">
+                                        <td>{{det.nombreProducto}}</td>
+                                        <td>{{det.precioProducto}}</td>
+                                        <td>{{det.cantidad}}</td>
+                                        <td>{{det.subtotal}}</td>
+                                        <td>
+                                            <input type="button" class="btn btn-primary" value="Eliminar" ng-click="eliminar($index)" />
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+             <input class="col-sm-1" type="checkbox" ng-change="ocultar()" ng-model="check">Mostrar Total</input>
+            <br>
+            <label class="col-sm-1 control-label" ng-model ="total" ng-show ="mostrarTotal">Total: {{total}}</label>
+
+        </div>
+        <br>
+            <br>
+            <div class="col-xs-4">
+                <input type="button" value="GuardarFactura" ng-click="guardarFactura()" />
+            </div>
+    </form>
+</body>
+
+</html>

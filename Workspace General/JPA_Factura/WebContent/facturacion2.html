@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="ModuloApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Facturacion</title>
+<!--<script type="text/javascript" src="jsF/libs/facturacion2.js"></script>-->
+<script type="text/javascript" src="jsF/utilitarios.js"></script>
+ <link href="css/estilos.css" rel=stylesheet>
+
+ <!-- Common Kendo UI Web CSS -->
+    <link href="css/styles/kendo.common.min.css" rel="stylesheet" />
+    <!-- Default Kendo UI Web theme CSS -->
+    <link href="css/styles/kendo.default.min.css" rel="stylesheet" />
+
+    <!-- jQuery JavaScript -->
+    <script src="jsF/libs/jquery.min.js"></script>
+
+    <!-- Angular JavaScript -->
+    <script src="jsF/libs/angular.js"></script>
+
+    <!-- Angular Route JavaScript -->
+    <script src="jsF/libs/angular-route.js"></script>
+
+    <!-- Kendo UI Web combined JavaScript -->
+    <script src="jsF/libs/kendo.web.min.js"></script>
+
+    <!-- Angular-Kendo JavaScript -->
+    <script src="jsF/libs/angular-kendo.min.js"></script>
+
+    <!-- Angular Translate JavaScript -->
+    <script src="jsF/libs/angular-translate.min.js"></script>
+
+    <!-- App JavaScripts -->
+    <script src="jsF/app.js"></script>
+    <script src="jsF/controllers.js"></script>
+    <script src="jsF/services.js"></script>
+    <script src="jsF/filters.js"></script>
+    <script src="jsF/directives.js"></script>
+
+
+</head>
+<body ng-controller="restauranteController">
+
+        
+	<div>
+		<h2>Datos Factura</h2>
+		Número de Factura: <input type="text" name="numFactura"
+			id="numFactura" /> <br> 
+	</div>
+	<br>
+	<div>
+		<h2>Cliente</h2>
+		Ingrese cédula: 
+		<input type="text" name="cedulaBusqueda"
+			id="cedulaBusqueda" />
+			 <input type="button" value="Buscar"
+			onclick="buscarPorCedula()" ng-click="buscarPorCedula()" /> <br> Cédula: 
+			<input type="text"
+			name="cedula" id="cedula" ng-model="clienteDatos.cedula" disabled/> Nombre: 
+			<input type="text"
+			name="nombre" id="nombre" ng-model="clienteDatos.nombre" disabled/> Apellido: 
+			<input type="text"
+			name="apellido" id="apellido" ng-model="clienteDatos.apellido" disabled/> <br> Direccion: 
+			<input
+			type="text" name="direccion" id="direccion" ng-model="clienteDatos.direccion" disabled/> Telefono:
+			 <input
+			type="text" name="telefono" id="telefono" ng-model="clienteDatos.telefono" disabled/>
+	</div>
+
+	<div> 
+		<h2>Nuevo Producto</h2>
+		Código: <input type="text" name="codigoBusqueda" id="codigoBusqueda" />
+		<input type="button" value="Buscar" onclick="buscarPorCodigo()" ng-click="buscarPorCodigo()"/> <br>
+		Código: <input type="text" name="codigo" id="codigo" ng-model="productoDatos.codigo" disabled/> Nombre: <input
+			type="text" name="nombreP" id="nombreP" ng-model="productoDatos.nombre" disabled/> <br> Precio: <input
+			type="text" name="precio" id="precio" ng-model="productoDatos.precioVenta" disabled/> Cantidad: <input
+			type="number" name="cantidad" id="cantidad" /> Categoria: <input
+			type="text" name="categoria" id="categoria" ng-model="productoDatos.categoria" disabled/><br> <input
+			type="button" value="Agregar" onclick="agregarProducto()" ng-click="agregarProducto()"/>
+
+		
+		 <br>
+              <div ng-include="'partials/listaProductos.html'" ng-model="mostrar" ng-show="mostrar=='listaP'"></div>
+          <br>  
+                        
+		<!--  <table id="listaProductos" cellpadding="2" cellspacing="2" border="1"></table>-->
+
+		<br> <input
+			type="button" value="GuardarFactura" onclick="guardarFactura()" ng-click="guardarFactura()" />
+			
+		
+		<div cobis-lista="productos" cobis-mostrar="nombre" class="test"></div>
+		<!--  
+		<br>
+		<input id="txtNombre" type="text" ng-model="nombre">
+        <input id="txtApellido" type="text" ng-model="apellido">
+        <label>Lista de Productos</label>
+        <br>        
+        <cobis-lista cobis-source="productos" cobis-mostrar="precio"></cobis-lista>
+        -->	
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="restauranteAngularcontroller.js"></script>
+    <link href="cobis/css/bootstrap.css" rel=stylesheet>
+    <link href="estilos.css" rel=stylesheet>
+</head>
+
+<body ng-app="modulo1">
+
+    <div class="container">
+        <div class="panel panel-primary col-md-6 col-md-offset-3 micolor">
+            <div class="panel-heading ">
+                <h4>RESTAURANTES</h4>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal" name="p">
+                    <div ng-controller="restauranteController">
+                        
+                        <div class="form-group">
+                            <label for="txtCodigo" class="col-xs-12 col-md-6">Codigo:</label>                           
+                            <input id="txtCodigo" type="text" class="col-xs-12 col-md-6" placeholder="Ingrese Codigo"  ng-model="restaurant1.codigo"/>
+                        </div>
+                        <br>
+                         <div class="form-group">
+                            <label for="txtNombre" class="col-xs-12 col-md-6">Nombre:</label>                           
+                            <input id="txtNombre" type="text" class="col-xs-12 col-md-6" placeholder="Ingrese Nombre" ng-model="restaurant1.nombre"/>
+                        </div>
+                        <br>
+                         <div class="form-group">
+                            <label for="txtTelefono" class="col-xs-12 col-md-6">Monto:</label>                           
+                            <input id="txtTelefono" type="text" class="col-xs-12 col-md-6" placeholder="Ingrese Telefono" ng-model="restaurant1.telefono">
+                        </div>
+                        <br>
+                        
+                         <input type = "button" class = "btn btn-primary" value = "Insertar" ng-click="insertar()"/>
+                        
+                        
+
+                        <table class="table table-striped">                          
+                            <thead>
+                                <tr>
+                                    <td>Codigo</td>
+                                    <td>Nombre</td>
+                                    <td>Telefono</td>                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="rest in restaurantes" >                                   
+                                    <td>{{$index+1}}</td>
+                                    <td>{{rest.codigo}}</td>
+                                    <td>{{rest.nombre}}</td>
+                                    <td>{{rest.telefono}}</td>                                   
+                                </tr>
+                            </tbody>
+                        </table>                        
+                         <input type = "button" class = "btn btn-primary" value = "Consultar" ng-click="recuperarTodos()"/>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="ModuloApp">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="restauranteAngularcontroller2.js"></script>
+     <script type="text/javascript" src="restauranteAngularservices2.js"></script>
+     <script type="text/javascript" src="restauranteAngularapp2.js"></script>
+    <script type="text/javascript" src="angular-route.js"></script>
+    <link href="cobis/css/bootstrap.css" rel=stylesheet>
+    <link href="estilos.css" rel=stylesheet>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="panel panel-primary col-md-6 col-md-offset-3 micolor">
+            <div class="panel-heading ">
+                <h4>RESTAURANTES</h4>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal" name="p">
+                    <div ng-controller="restauranteController">
+                        
+                        <input type="button" class="btn btn-primary" value="Nuevo" ng-click="mostrarNuevo()" />                        
+                        
+                        
+                      <!--  <br>
+                            <div ng-include="'listaRestaurante.html'" ng-model="mostrar" ng-show="mostrar=='lista'"></div>
+                        <br>                        
+                        
+                    
+                        <br>
+                            <div ng-include="'edicionRestaurante.html'" ng-show="mostrar=='edicion'"></div> 
+                        <br>-->
+                        
+                           <ng-view></ng-view>
+                    
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+

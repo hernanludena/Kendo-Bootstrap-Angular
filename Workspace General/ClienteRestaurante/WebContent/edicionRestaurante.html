@@ -1,0 +1,23 @@
+<div class="form-group">
+    <label for="txtCodigo" class="col-xs-12 col-md-6">Codigo:</label>
+    <input id="txtCodigo" type="text" class="col-xs-12 col-md-6" ng-model="restaurant1.codigo" disabled/>
+</div>
+<br>
+<div class="form-group">
+    <label for="txtNombre" class="col-xs-12 col-md-6">Nombre:</label>
+    <input id="txtNombre" type="text" class="col-xs-12 col-md-6" placeholder="Ingrese Nombre" ng-model="restaurant1.nombre" />
+</div>
+<br>
+<div class="form-group">
+    <label for="txtTelefono" class="col-xs-12 col-md-6">Telefono:</label>
+    <input id="txtTelefono" type="text" class="col-xs-12 col-md-6" placeholder="Ingrese Telefono" ng-model="restaurant1.telefono">
+</div>
+<br>
+<div class="form-group">
+    <label for="txtCategoria" class="col-xs-12 col-md-6">Categoria:</label>
+    <td><select id="cmbCategoria" ng-options="categoria.nombre for categoria in categorias track by categoria.codigo" ng-model="restaurant1.categoria"> </select> </td>
+</div>
+
+
+<input type="button" class="btn btn-primary" value="Insertar" ng-click="insertar()" />
+<input type="button" class="btn btn-primary" value="Cancelar" ng-click="cancelar()" />
